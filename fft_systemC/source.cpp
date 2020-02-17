@@ -13,15 +13,13 @@ void Source::Comportement(){
   wait();
 
   while(true){
-    if(!stream.eof()){
-      stream >> tmp_val;
+    if(stream >> tmp_val){
       Out.write(tmp_val);
-      wait();
     } else {
       cout << "End of file" << endl;
       stream.close();
-      break;
-      wait();
+      //must manage end of reading here !
     }
+    wait();
   }
 };
