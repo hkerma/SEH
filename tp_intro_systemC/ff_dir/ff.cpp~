@@ -1,0 +1,6 @@
+#include "ff.h"
+#include <systemc.h>
+
+void FF::COMPORTEMENT(){
+  signal_not_clk = !CLK;
+};

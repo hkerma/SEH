@@ -1,0 +1,7 @@
+#include "xor.h"
+
+void Xor::comportement(){
+
+  S = (A^B);
+
+}

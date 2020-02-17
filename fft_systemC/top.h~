@@ -1,0 +1,14 @@
+#include <systemc.h>
+#include "source.h"
+#include "sink.h"
+#include "fft.h"
+#ifndef TOP_H
+#define TOP_H
+
+SC_MODULE(Top)
+{
+ public:
+
+  Source *source;
+  Sink *sink;
+  Fft *fft;

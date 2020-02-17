@@ -1,0 +1,4 @@
+#include "add1.h"
+
+void Add1::Comportement(){
+}

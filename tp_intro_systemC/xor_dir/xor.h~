@@ -1,0 +1,29 @@
+#include <systemc.h>
+#include "../nand_dir/nand.h"
+#ifndef XOR_H
+#define XOR_H
+
+SC_MODULE(Xor)
+{
+
+ public : 
+  sc_in<bool> A,B; // bool peut etre remplace par sc_bit
+  sc_out<bool> S;
+        
+  SC_CTOR(Xor)
+  {
+    Nand *nand1 = new Nand("nand1");
+    Nand *nand21 = new Nand("nand21");
+    Nand *nand22 = new Nand("nand22");
+    Nand *nand3 = new Nand("nand3");
+    nand1->A = A;
+    nand1->B = B;
+    nand21->A = A;
+    nand21->B = nand1->S;
+    nand22->A = nand1->S;
+    nand22->B = B;
+    nand3->A = nand21->S;
+    nand3->B = nand22->S;
+  }    
+};
+#endif

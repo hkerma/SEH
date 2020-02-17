@@ -1,0 +1,17 @@
+#ifndef ADD1_STIMULI_H
+#define ADD1_STIMULI_H
+#include <systemc.h>
+
+SC_MODULE(Add1_stimuli){
+  sc_in_clk clk;
+  sc_out<bool> A,B,C_in;
+
+  void Stim();
+
+  SC_CTOR(Add1_stimuli){
+    SC_THREAD(Stim);
+    sensitive << clk.pos();
+  }
+};
+
+#endif
