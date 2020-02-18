@@ -7,6 +7,7 @@ void Source::Comportement(){
   stream.open("input_samples.txt");
 
   float tmp_re, tmp_im;
+  sc_int<23> fixed_re, fixed_im;
   Data_valid = 0;
   int eof = 0;
   

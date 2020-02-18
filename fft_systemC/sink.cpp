@@ -19,7 +19,7 @@ void Sink::Comportement(){
       stream << In_im << endl;
       wait();
       Data_request = 0;
-    }
+    } else {
     wait();
   }
 }

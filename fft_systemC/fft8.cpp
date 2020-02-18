@@ -5,8 +5,8 @@ complex_t weights[4] = W;
 
 void Fft8::Comportement(){
 
-  float tmp_in_re[8], tmp_in_im[8];
-  float tmp_out_re[8], tmp_out_im[8];
+  sc_int<23> tmp_in_re[8], tmp_in_im[8];
+  sc_int<23> tmp_out_re[8], tmp_out_im[8];
   
   In_data_request = 0;
   Out_data_valid = 0;
@@ -44,7 +44,7 @@ void Fft8::Comportement(){
   }
 }
 
-void fft(float* in_re, float* in_im, float* out_re, float* out_im){
+void fft(sc_int<23>* in_re, sc_int<23>* in_im, sc_int<23>* out_re, sc_int<23>* out_im){
   
   complex_t in[8], out[8], stage1[8], stage2[8];
 
