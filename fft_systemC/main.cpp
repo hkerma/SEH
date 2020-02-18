@@ -1,6 +1,5 @@
 #include <systemc.h>
 #include "fft.h"
-#include "fft_stimuli.h"
 
 int sc_main(int argc, char *argv[]){
   //Signal
@@ -8,21 +7,24 @@ int sc_main(int argc, char *argv[]){
   
   //Instantiate
   Fft fft("fft");
-  Fft_stimuli fft_stimuli("fft_stimuli");
   sc_clock Clk("ID", 10, SC_NS, 0.5, 10, SC_NS, true);
   fft.Clk(Clk);
-  fft.Enable(signal_enable);
-  
-  fft_stimuli.Clk(Clk);
-  fft_stimuli.Enable(signal_enable);
 
   //Waves
   sc_trace_file *tf = sc_create_vcd_trace_file("trace");
   tf->set_time_unit(1, SC_NS);
   sc_trace(tf, Clk, "clk");
-  sc_trace(tf, signal_enable, "enable");
-  fft.fifo_in->trace(tf);
-  fft.fifo_out->trace(tf);
+  
+  sc_trace(tf, fft.In_re, "In_re");
+  sc_trace(tf, fft.In_im, "In_im");
+  sc_trace(tf, fft.Out_re, "Out_re");
+  sc_trace(tf, fft.Out_im, "Out_im");
+
+  sc_trace(tf, fft.In_data_valid, "In_data_valid");
+  sc_trace(tf, fft.In_data_request, "In_data_request");
+  sc_trace(tf, fft.Out_data_valid, "Out_data_valid");
+  sc_trace(tf, fft.Out_data_request, "Out_data_request");
+  
   sc_start(2000, SC_NS);
   cout << "Finished at " << sc_time_stamp() << "\n";
   sc_close_vcd_trace_file(tf);

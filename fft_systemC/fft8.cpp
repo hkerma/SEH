@@ -6,7 +6,7 @@ complex_t weights[4] = W;
 void Fft8::Comportement(){
 
   float tmp_in_re[8], tmp_in_im[8];
-  float tmp_out_re[8], tmp_out_re[8];
+  float tmp_out_re[8], tmp_out_im[8];
   
   In_data_request = 0;
   Out_data_valid = 0;
@@ -15,36 +15,36 @@ void Fft8::Comportement(){
   int out_data_count = 0;
   
   while(true){
-    In_data_request = !Out_data_valid;
-    if (In_data_valid){
-      tmp_in_re[in_data_count] = In_re;
-      tmp_in_im[in_data_count] = In_im;
-      ++in_data_count;
+    while(in_data_count != 8){
+      In_data_request = 1;
       wait();
-    }
-    if(in_data_count == 8);{
-      in_data_count = 0;
+      if(In_data_valid){
+	tmp_in_re[in_data_count] = In_re;
+	tmp_in_im[in_data_count] = In_im;
+	++in_data_count;
+      }
       In_data_request = 0;
-      fft(*tmp_in_re,*tmp_in_im,*tmp_out_re,*tmp_out_im);
-      Out_data_valid = 1;
-      wait();
     }
-    if(Out_data_request){
+    
+    in_data_count = 0;
+    fft(tmp_in_re, tmp_in_im, tmp_out_re, tmp_out_im);
+    
+    while(out_data_count != 8){
+      Out_data_valid = 1;
       Out_re = tmp_out_re[out_data_count];
       Out_im = tmp_out_im[out_data_count];
-      ++out_data_count;
       wait();
-    }
-    if(out_data_count == 8){
-      out_data_count = 0;
-      In_data_request = 1;
+      if(Out_data_request){
+	++out_data_count;
+      }
       Out_data_valid = 0;
-      wait();
     }
+    
+    out_data_count = 0;    
   }
-};
+}
 
-    void fft(float* in_re, float* in_im, float* out_re, float* out_im){
+void fft(float* in_re, float* in_im, float* out_re, float* out_im){
   
   complex_t in[8], out[8], stage1[8], stage2[8];
 
@@ -76,14 +76,14 @@ void Fft8::Comportement(){
     out_re[i] = out[i].real;
     out_im[i] = out[i].imag;
   }  
-};
+}
 
 void but(complex_t *weight, complex_t *in0, complex_t *in1, complex_t *out0, complex_t *out1){
   out0->real = (in0->real + ((in1->real * weight->real) - (in1->imag * weight->imag)));
   out0->imag = (in0->imag + ((in1->real * weight->imag) + (in1->imag * weight->real)));
   out1->real = (in0->real - ((in1->real * weight->real) - (in1->imag * weight->imag)));
   out1->imag = (in0->imag - ((in1->real * weight->imag) + (in1->imag * weight->real)));
-};
+}
 
  
   

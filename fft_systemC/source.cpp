@@ -15,19 +15,20 @@ void Source::Comportement(){
   wait();
 
   while(true){
-    if(!eof){
-      if(stream >> tmp_re && stream >> tmp_im){ //if end of file, read will return 0 !
+    if(Data_request && !eof){
+      if(stream >> tmp_re && stream >> tmp_im){
 	Data_valid = 1;
 	Out_re = tmp_re;
 	Out_im = tmp_im;
+	wait();
 	Data_valid = 0;
       } else {
 	eof = 1;
 	stream.close();
-	break;
-	//going out of loop, end of file
       }
+    } else {
+	Data_valid = 0;
     }
     wait();
   }
-};
+}
