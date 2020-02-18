@@ -1,2 +1,3 @@
-trace.vcd
+*.vcd
 *.o
+fft
