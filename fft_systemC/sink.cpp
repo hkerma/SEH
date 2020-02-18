@@ -11,9 +11,16 @@ void Sink::Comportement(){
   if(!stream)
     cerr << "Erreur d'ouverture du fichier" << endl;
   wait();
+  
   while(true){
-    tmp_val = In.read();
-    stream << tmp_val << endl;
+    if (In.num_available() == 16) {
+      for (int i=0; i < 16; ++i){
+	tmp_val = In.read();
+	stream << tmp_val << endl;
+      }
+    } else {
+      cout << "Waiting for fifo_out to be full" << endl;
+    }
     wait();
   }
 };

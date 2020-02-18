@@ -1,5 +1,5 @@
 $date
-     Feb 17, 2020       12:31:30
+     Feb 18, 2020       10:41:15
 $end
 
 $version
@@ -65,14 +65,14 @@ r3.559244355763391e-17 aaaag
 r1.832023514993055e+25 aaaah
 r6.593495034451775e+22 aaaai
 r7.555081327053433e+31 aaaaj
-r1.940352459547729e-22 aaaak
-r3.089582854143357e-41 aaaal
-r1.940666489296879e-22 aaaam
-r3.089582854143357e-41 aaaan
-r1.940689713361929e-22 aaaao
-r3.089582854143357e-41 aaaap
-r1.940993645691493e-22 aaaaq
-r3.089582854143357e-41 aaaar
+r91.193359375 aaaak
+r3.073748181496486e-41 aaaal
+r91.21234130859375 aaaam
+r3.073748181496486e-41 aaaan
+r91.2137451171875 aaaao
+r3.073748181496486e-41 aaaap
+r91.23211669921875 aaaaq
+r3.073748181496486e-41 aaaar
 r0 aaaas
 r0 aaaat
 r6.594295324105558e+22 aaaau
@@ -93,6 +93,22 @@ $end
 
 #10
 1aaaaa
+r2011 aaaac
+r2011 aaaad
+r2011 aaaae
+r2011 aaaaf
+r2011 aaaag
+r2011 aaaah
+r2011 aaaai
+r2011 aaaaj
+r2011 aaaak
+r2011 aaaal
+r2011 aaaam
+r2011 aaaan
+r2011 aaaao
+r2011 aaaap
+r2011 aaaaq
+r2011 aaaar
 
 #15
 0aaaaa
@@ -100,110 +116,262 @@ $end
 #20
 1aaaaa
 1aaaab
+r0 aaaac
+r0 aaaad
+r0 aaaae
+r0 aaaaf
+r0 aaaag
+r0 aaaah
+r0 aaaai
+r0 aaaaj
+r0 aaaak
+r0 aaaal
+r0 aaaam
+r0 aaaan
+r0 aaaao
+r0 aaaap
+r0 aaaaq
+r0 aaaar
+r2011 aaaas
+r2011 aaaat
+r2011 aaaau
+r2011 aaaav
+r2011 aaaaw
+r2011 aaaax
+r2011 aaaay
+r2011 aaaaz
+r2011 aaaba
+r2011 aaabb
+r2011 aaabc
+r2011 aaabd
+r2011 aaabe
+r2011 aaabf
+r2011 aaabg
+r2011 aaabh
 
 #25
 0aaaaa
 
 #30
 1aaaaa
-r0 aaaae
+r1 aaaac
+r1 aaaad
+r0 aaaas
+r0 aaaat
 r0 aaaau
+r0 aaaav
+r0 aaaaw
+r0 aaaax
+r0 aaaay
+r0 aaaaz
+r0 aaaba
+r0 aaabb
+r0 aaabc
+r0 aaabd
+r0 aaabe
+r0 aaabf
+r0 aaabg
+r0 aaabh
 
 #35
 0aaaaa
 
 #40
 1aaaaa
-r0 aaaaf
-r0 aaaav
+r0 aaaac
+r0 aaaad
+r1 aaaas
+r1 aaaat
 
 #45
 0aaaaa
 
 #50
 1aaaaa
-r0 aaaag
-r0 aaaaw
+r456 aaaad
+r120 aaaae
+r234 aaaaf
+r234 aaaag
+r120 aaaah
+r120 aaaai
+r-120 aaaal
+r-120 aaaam
+r-234 aaaan
+r-234 aaaao
+r-456 aaaap
+r-120 aaaaq
+r-768 aaaar
+r0 aaaas
+r0 aaaat
 
 #55
 0aaaaa
 
 #60
 1aaaaa
+r0 aaaad
+r0 aaaae
+r0 aaaaf
+r0 aaaag
 r0 aaaah
-r0 aaaax
+r0 aaaai
+r0 aaaal
+r0 aaaam
+r0 aaaan
+r0 aaaao
+r0 aaaap
+r0 aaaaq
+r0 aaaar
+r456 aaaat
+r120 aaaau
+r234 aaaav
+r234 aaaaw
+r120 aaaax
+r120 aaaay
+r-120 aaabb
+r-120 aaabc
+r-234 aaabd
+r-234 aaabe
+r-456 aaabf
+r-120 aaabg
+r-768 aaabh
 
 #65
 0aaaaa
 
 #70
 1aaaaa
-r0 aaaai
+r123 aaaac
+r29 aaaad
+r34 aaaae
+r34 aaaaf
+r-23 aaaag
+r85 aaaah
+r12 aaaai
+r206 aaaaj
+r45 aaaak
+r336 aaaal
+r593 aaaan
+r67 aaaao
+r823 aaaap
+r134 aaaaq
+r422 aaaar
+r0 aaaat
+r0 aaaau
+r0 aaaav
+r0 aaaaw
+r0 aaaax
 r0 aaaay
+r0 aaabb
+r0 aaabc
+r0 aaabd
+r0 aaabe
+r0 aaabf
+r0 aaabg
+r0 aaabh
 
 #75
 0aaaaa
 
 #80
 1aaaaa
+r0 aaaac
+r0 aaaad
+r0 aaaae
+r0 aaaaf
+r0 aaaag
+r0 aaaah
+r0 aaaai
 r0 aaaaj
-r0 aaaaz
+r0 aaaak
+r0 aaaal
+r0 aaaan
+r0 aaaao
+r0 aaaap
+r0 aaaaq
+r0 aaaar
+r123 aaaas
+r29 aaaat
+r34 aaaau
+r34 aaaav
+r-23 aaaaw
+r85 aaaax
+r12 aaaay
+r206 aaaaz
+r45 aaaba
+r336 aaabb
+r593 aaabd
+r67 aaabe
+r823 aaabf
+r134 aaabg
+r422 aaabh
 
 #85
 0aaaaa
 
 #90
 1aaaaa
-r0 aaaak
+r404 aaaac
+r404 aaaad
+r404 aaaae
+r404 aaaaf
+r0 aaaas
+r0 aaaat
+r0 aaaau
+r0 aaaav
+r0 aaaaw
+r0 aaaax
+r0 aaaay
+r0 aaaaz
+r0 aaaba
+r0 aaabb
+r0 aaabd
+r0 aaabe
+r0 aaabf
+r0 aaabg
+r0 aaabh
 
 #95
 0aaaaa
 
 #100
 1aaaaa
-r0 aaaal
 
 #105
 0aaaaa
 
 #110
 1aaaaa
-r0 aaaam
 
 #115
 0aaaaa
 
 #120
 1aaaaa
-r0 aaaan
 
 #125
 0aaaaa
 
 #130
 1aaaaa
-r0 aaaao
 
 #135
 0aaaaa
 
 #140
 1aaaaa
-r0 aaaap
 
 #145
 0aaaaa
 
 #150
 1aaaaa
-r0 aaaaq
 
 #155
 0aaaaa
 
 #160
 1aaaaa
-r0 aaaar
 
 #165
 0aaaaa
