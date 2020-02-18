@@ -6,7 +6,8 @@ void Source::Comportement(){
   ifstream stream;
   stream.open("input_samples.txt");
 
-  float tmp_val;
+  float tmp_re, tmp_im;
+  Data_valid = 0;
   int eof = 0;
   
   if(!stream)
@@ -15,22 +16,17 @@ void Source::Comportement(){
 
   while(true){
     if(!eof){
-      if(Out.num_free() == 16){
-	for(int i = 0; i < 16; ++i){
-	  if(stream >> tmp_val){ //if end of file, read will return 0 !
-	    Out.write(tmp_val);
-	  } else {
-	    eof = 1;
-	    stream.close();
-	    break;
-	    //going out of loop, end of file
-	  }
-	}
+      if(stream >> tmp_re && stream >> tmp_im){ //if end of file, read will return 0 !
+	Data_valid = 1;
+	Out_re = tmp_re;
+	Out_im = tmp_im;
+	Data_valid = 0;
       } else {
-	cout << "Waiting for fifo_in to be empty" << endl;
+	eof = 1;
+	stream.close();
+	break;
+	//going out of loop, end of file
       }
-    } else {
-      cout << "End of file reached" << endl;
     }
     wait();
   }

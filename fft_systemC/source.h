@@ -5,8 +5,11 @@
 SC_MODULE(Source){
  public:
   sc_in<bool> Clk;
+  sc_in<bool> Data_request;
+  sc_out<bool> Data_valid;
   
-  sc_fifo_out<float> Out;
+  sc_out<float> Out_re;
+  sc_out<float> Out_im;
 
   void Comportement();
 

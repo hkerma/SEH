@@ -9,7 +9,9 @@
 SC_MODULE(Fft){
  public:
   sc_in<bool> Clk, Enable;
-  sc_fifo<float> *fifo_in, *fifo_out;
+  sc_signal<float> In_re, In_im, Out_re, Out_im;
+
+  sc_signal<bool> In_data_valid, Out_data_valid, In_data_request, Out_data_request;
     
   Fft8 *fft8;
   Source *source;
@@ -20,19 +22,29 @@ SC_MODULE(Fft){
     fft8 = new Fft8("fft8");
     source = new Source("source");
     sink = new Sink("sink");
-
-    fifo_in = new sc_fifo<float>("fifo_in", 16);
-    fifo_out = new sc_fifo<float>("fifo_out", 16);
     
     fft8->Clk(Clk);
-    fft8->In(*fifo_in);
-    fft8->Out(*fifo_out);
+    fft8->In_re(In_re);
+    fft8->In_im(In_im);
+    fft8->Out_re(Out_re);
+    fft8->Out_im(Out_im);
+    
+    fft8->In_data_valid(In_data_valid);
+    fft8->In_data_request(In_data_request);
+    fft8->Out_data_request(Out_data_request);
+    fft8->Out_data_valid(Out_data_valid);
 
     source->Clk(Clk);
-    source->Out(*fifo_in);
+    source->Out_re(In_re);
+    source->Out_im(In_im);
+    source->Data_valid(In_data_valid);
+    source->Data_request(In_data_request);
 
     sink->Clk(Clk);
-    sink->In(*fifo_out);
+    sink->In_re(Out_re);
+    sink->In_im(Out_im);
+    sink->Data_valid(Out_data_valid);
+    sink->Data_request(Out_data_request);
   }
 };
 #endif

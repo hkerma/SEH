@@ -5,46 +5,52 @@ complex_t weights[4] = W;
 
 void Fft8::Comportement(){
 
-  float tmp_in[16];
-  float tmp_out[16];
-
-  int data_out = 0;
+  float tmp_in_re[8], tmp_in_im[8];
+  float tmp_out_re[8], tmp_out_re[8];
+  
+  In_data_request = 0;
+  Out_data_valid = 0;
+  
+  int in_data_count = 0;
+  int out_data_count = 0;
   
   while(true){
-    if (In.num_available() == 16) {
-      for(int i = 0; i < 16; ++i){
-	tmp_in[i] = In.read();
-	fft(tmp_in, tmp_out); //simulate fft
-      }
-      data_out = 1;
+    In_data_request = !Out_data_valid;
+    if (In_data_valid){
+      tmp_in_re[in_data_count] = In_re;
+      tmp_in_im[in_data_count] = In_im;
+      ++in_data_count;
+      wait();
     }
-    
-    if (Out.num_free() == 16 and data_out) {
-      for(int i = 0; i < 16; ++i){
-	Out.write(tmp_out[i]);
-      }
-      data_out = 0;
+    if(in_data_count == 8);{
+      in_data_count = 0;
+      In_data_request = 0;
+      fft(*tmp_in_re,*tmp_in_im,*tmp_out_re,*tmp_out_im);
+      Out_data_valid = 1;
+      wait();
     }
-    wait();
+    if(Out_data_request){
+      Out_re = tmp_out_re[out_data_count];
+      Out_im = tmp_out_im[out_data_count];
+      ++out_data_count;
+      wait();
+    }
+    if(out_data_count == 8){
+      out_data_count = 0;
+      In_data_request = 1;
+      Out_data_valid = 0;
+      wait();
+    }
   }
 };
 
-void fft(float* tmp_in, float* tmp_out){
+    void fft(float* in_re, float* in_im, float* out_re, float* out_im){
   
-  float re_in[8], im_in[8], re_out[8], im_out[8];
   complex_t in[8], out[8], stage1[8], stage2[8];
 
-  // Parsing arrays
-  for(int i = 0; i < 16; ++i){
-    if(i%2){
-      im_in[i/2] = *(tmp_in + i);
-    } else {
-      re_in[i/2] = *(tmp_in + i);
-    }
-  }
   for(int i = 0; i < 8; ++i){
-    in[i].real = re_in[i];
-    in[i].imag = im_in[i];
+    in[i].real = in_re[i];
+    in[i].imag = in_im[i];
   }
 
   // First stage
@@ -67,17 +73,9 @@ void fft(float* tmp_in, float* tmp_out){
 
   // Unparsing arrays
   for(int i = 0; i < 8; ++i){
-    re_out[i] = out[i].real;
-    im_out[i] = out[i].imag;
-  }
-  for(int i = 0; i < 16; ++i){
-    if(i%2){
-      *(tmp_out + i) = im_out[i/2];
-    } else {
-      *(tmp_out + i) = re_out[i/2];
-    }
-  }
-  
+    out_re[i] = out[i].real;
+    out_im[i] = out[i].imag;
+  }  
 };
 
 void but(complex_t *weight, complex_t *in0, complex_t *in1, complex_t *out0, complex_t *out1){

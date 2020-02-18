@@ -21,8 +21,12 @@ void but(complex_t*, complex_t*, complex_t*, complex_t*, complex_t*);
 SC_MODULE(Fft8){
  public:
   sc_in<bool> Clk;
-  sc_fifo_in<float> In;
-  sc_fifo_out<float> Out;
+
+  sc_in<float> In_re, In_im;
+  sc_out<float> Out_re, Out_im;
+  
+  sc_in<bool> In_data_valid, Out_data_request;
+  sc_out<bool> Out_data_valid, In_data_request;
 
   void Comportement();
 
