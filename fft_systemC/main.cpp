@@ -3,6 +3,10 @@
 #include "fft.h"
 
 int sc_main(int argc, char *argv[]){
+  //Just to avoid warnings
+  (void)argc;
+  (void)argv;
+  
   //Signal
   sc_signal<bool> signal_enable;
   

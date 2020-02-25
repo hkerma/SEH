@@ -20,8 +20,6 @@ void Sink::Comportement(){
       stream << In_im.read().to_float() << endl;
       wait();
       Data_request = 0;
-    } else {
-    wait();
     }
     wait();
   }

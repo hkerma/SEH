@@ -8,7 +8,7 @@ CC=g++
 #SYSTEMC=/opt/systemc
 SYSTEMC=/opt/systemc/systemc-2.3.3
 LDFLAGS= -L$(SYSTEMC)/lib-linux64 -Wl,-rpath=$(SYSTEMC)/lib-linux64 -lsystemc -lm
-CXXFLAGS= -W -Wall -pedantic -g -I$(SYSTEMC)/include -DDEBUG_SYSTEMC
+CXXFLAGS= -W -Wall -Wextra -pedantic -g -I$(SYSTEMC)/include -DDEBUG_SYSTEMC
 
 all: $(EXEC) 
 

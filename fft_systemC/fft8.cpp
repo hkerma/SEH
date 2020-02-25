@@ -2,7 +2,7 @@
 #include "fft8.h"
 #include <systemc.h>
 
-complex_t weights[4] = {complex_t {1.0, 0.0}, complex_t{0.7071067812, -0.7071067812}, complex_t{0.0, -1.0}, complex_t{0.7071067812, -0.7071067812}};
+complex_t weights[4] = {complex_t{1.0, 0.0}, complex_t{0.7071067812, -0.7071067812}, complex_t{0.0, -1.0}, complex_t{0.7071067812, -0.7071067812}};
 
 void Fft8::Comportement(){
 
@@ -11,6 +11,12 @@ void Fft8::Comportement(){
   
   In_data_request = 0;
   Out_data_valid = 0;
+  
+  //Quick test to check weights precision
+  /*for(int i = 0; i < 4; ++i){
+    printf("Weight %d real : %f \n", i, weights[i].real.to_float());
+    printf("Weight %d imag :  %f \n", i, weights[i].imag.to_float());
+    }*/
   
   int in_data_count = 0;
   int out_data_count = 0;
