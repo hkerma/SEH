@@ -1,10 +1,9 @@
 #include <systemc.h>
+#ifndef FFT_H
+#define FFT_H
 #include "fft8.h"
 #include "sink.h"
 #include "source.h"
-
-#ifndef FFT_H
-#define FFT_H
 
 SC_MODULE(Fft){
  public:

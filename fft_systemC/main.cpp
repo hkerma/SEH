@@ -1,9 +1,8 @@
-#include <systemc.h>
 #include "global.h"
+#include <systemc.h>
 #include "fft.h"
 
 int sc_main(int argc, char *argv[]){
-  
   //Signal
   sc_signal<bool> signal_enable;
   

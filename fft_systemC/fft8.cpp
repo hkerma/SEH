@@ -2,7 +2,7 @@
 #include "fft8.h"
 #include <systemc.h>
 
-complex_t weights[4] = W_fixed;
+complex_t weights[4] = {complex_t {1.0, 0.0}, complex_t{0.7071067812, -0.7071067812}, complex_t{0.0, -1.0}, complex_t{0.7071067812, -0.7071067812}};
 
 void Fft8::Comportement(){
 

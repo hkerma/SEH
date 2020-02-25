@@ -23,5 +23,6 @@ void Sink::Comportement(){
     } else {
     wait();
     }
+    wait();
   }
 }

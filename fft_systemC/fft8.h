@@ -2,14 +2,11 @@
 #ifndef FFT8_H
 #define FFT8_H
 
-fixed_pt W_fixed[4][2] {{1.0, 0.0}, {0.7071067812, -0.7071067812}, {0.0, -1.0}, {0.7071067812, -0.7071067812}};
-
-typedef struct complex_s complex_t;
-
 struct complex_s {
   fixed_pt real;
   fixed_pt imag;
 };
+typedef struct complex_s complex_t;
 
 void fft(fixed_pt*, fixed_pt*, fixed_pt*, fixed_pt*);
 void but(complex_t*, complex_t*, complex_t*, complex_t*, complex_t*);
