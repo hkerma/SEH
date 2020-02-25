@@ -8,8 +8,8 @@ SC_MODULE(Source){
   sc_in<bool> Data_request;
   sc_out<bool> Data_valid;
   
-  sc_out<float> Out_re;
-  sc_out<float> Out_im;
+  sc_out<fixed_pt> Out_re;
+  sc_out<fixed_pt> Out_im;
 
   void Comportement();
 

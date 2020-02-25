@@ -1,3 +1,4 @@
+#include "global.h"
 #include "source.h"
 #include <systemc.h>
 #include <iostream>
@@ -7,7 +8,7 @@ void Source::Comportement(){
   stream.open("input_samples.txt");
 
   float tmp_re, tmp_im;
-  sc_int<23> fixed_re, fixed_im;
+  fixed_pt fixed_re, fixed_im;
   Data_valid = 0;
   int eof = 0;
   
@@ -28,7 +29,7 @@ void Source::Comportement(){
 	stream.close();
       }
     } else {
-	Data_valid = 0;
+      Data_valid = 0;
     }
     wait();
   }

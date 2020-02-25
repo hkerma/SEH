@@ -1,12 +1,13 @@
+#include "global.h"
 #include "fft8.h"
 #include <systemc.h>
 
-complex_t weights[4] = W;
+complex_t weights[4] = W_fixed;
 
 void Fft8::Comportement(){
 
-  sc_int<23> tmp_in_re[8], tmp_in_im[8];
-  sc_int<23> tmp_out_re[8], tmp_out_im[8];
+  fixed_pt tmp_in_re[8], tmp_in_im[8];
+  fixed_pt tmp_out_re[8], tmp_out_im[8];
   
   In_data_request = 0;
   Out_data_valid = 0;
@@ -44,7 +45,7 @@ void Fft8::Comportement(){
   }
 }
 
-void fft(sc_int<23>* in_re, sc_int<23>* in_im, sc_int<23>* out_re, sc_int<23>* out_im){
+void fft(fixed_pt* in_re, fixed_pt* in_im, fixed_pt* out_re, fixed_pt* out_im){
   
   complex_t in[8], out[8], stage1[8], stage2[8];
 

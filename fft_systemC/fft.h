@@ -9,7 +9,7 @@
 SC_MODULE(Fft){
  public:
   sc_in<bool> Clk;
-  sc_signal<sc_int<23>> In_re, In_im, Out_re, Out_im;
+  sc_signal<fixed_pt> In_re, In_im, Out_re, Out_im;
 
   sc_signal<bool> In_data_valid, Out_data_valid, In_data_request, Out_data_request;
     
